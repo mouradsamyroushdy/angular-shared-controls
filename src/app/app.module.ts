@@ -3,11 +3,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { HelloComponent } from './hello.component';
-import{RadioboxComponent} from './controls/radiobox/radiobox.component.ts';
+import {SharedModule} from './shared/shared.module';
 @NgModule({
-  imports:      [ BrowserModule, FormsModule ],
-  declarations: [ AppComponent, HelloComponent,RadioboxComponent ],
+  imports:      [ BrowserModule, FormsModule,SharedModule ],
+  declarations: [ AppComponent],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }
