@@ -7,12 +7,12 @@ import { Component, OnInit } from "@angular/core";
 })
 export class DropdownDemoComponent implements OnInit {
   listItems = [
-    { key: "", value: "X-Small" },
-    { key: "", value: "Small" },
-    { key: "", value: "Medium" },
-    { key: "", value: "Large" },
-    { key: "", value: "X-Large" },
-    { key: "", value: "2X-Large" }
+    { key: "a", value: "X-Small" },
+    { key: "b", value: "Small" },
+    { key: "c", value: "Medium" },
+    { key: "d", value: "Large" },
+    { key: "e", value: "X-Large" },
+    { key: "f", value: "2X-Large" }
   ];
   constructor() {}
 
