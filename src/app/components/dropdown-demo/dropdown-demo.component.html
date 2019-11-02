@@ -1,7 +1,14 @@
 <form [formGroup]="dropdownDemoForm">
-	<app-dropdown formControlName='ddl' [defaultValue]="listItems[0]" [listItems]='listItems' [txtValue]="'value'" [txtField]="'key'"></app-dropdown>
+	<app-dropdown formControlName='ddl' [defaultValue]="defaultItem" [listItems]='listItems' [txtValue]="'value'"
+		[txtField]="'key'"></app-dropdown>
 </form>
-
-{{dropdownDemoForm?.controls.ddl?.value.key}}
-{{dropdownDemoForm?.controls.ddl?.value.value}}
-
+<div class='mt-4'>
+	<div class="alert alert-primary" role="alert">
+		<b class='mr-2'>Key:</b>
+		{{dropdownDemoForm?.controls.ddl?.value.key}}
+	</div>
+	<div class="alert alert-primary" role="alert">
+		<b class='mr-2'>Value:</b>
+		{{dropdownDemoForm?.controls.ddl?.value.value}}
+	</div>
+</div>

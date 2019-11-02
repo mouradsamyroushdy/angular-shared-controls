@@ -15,8 +15,9 @@ export class DropdownDemoComponent implements OnInit {
     { key: "e", value: "X-Large" },
     { key: "f", value: "2X-Large" }
   ];
+  defaultItem = { key: "Select item...", value: null };
   dropdownDemoForm = new FormGroup({
-    ddl: new FormControl("")
+    ddl: new FormControl(this.defaultItem)
   });
   constructor() {}
 
