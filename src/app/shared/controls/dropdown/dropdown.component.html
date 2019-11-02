@@ -1,0 +1,7 @@
+<div class="dropdown-cont">
+  <kendo-dropdownlist [valuePrimitive]="primitive" [data]="listItems" [ngStyle]="styles" [textField]="txtField"
+    [valueField]="txtValue" [disabled]='disabled'
+     (selectionChange)="onSelectionChange($event)" [(ngModel)]="selectedItem"
+   [defaultItem]="defaultValue">
+  </kendo-dropdownlist>
+</div>

@@ -1,3 +1,5 @@
 import { RadioboxComponent } from "./radiobox/radiobox.component";
-export const ALL = [RadioboxComponent];
-export { RadioboxComponent };
+import { DropdownComponent } from "./dropdown/dropdown.component";
+
+export const ALL = [RadioboxComponent, DropdownComponent];
+export { RadioboxComponent, DropdownComponent };
