@@ -1,1 +1,6 @@
-<app-dropdown [(ngModel)]='model' [listItems]='listItems' [txtValue]="'value'" [txtField]="'key'"></app-dropdown>
+<form [formGroup]="dropdownDemoForm">
+	<app-dropdown formControlName='ddl' [listItems]='listItems' [txtValue]="'value'" [txtField]="'key'"></app-dropdown>
+</form>
+
+{{dropdownDemoForm?.controls.ddl?.value.key}}
+{{dropdownDemoForm?.controls.ddl?.value.value}}

@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { FormGroup, FormControl } from "@angular/forms";
 
 @Component({
   selector: "app-dropdown-demo",
@@ -14,6 +15,9 @@ export class DropdownDemoComponent implements OnInit {
     { key: "e", value: "X-Large" },
     { key: "f", value: "2X-Large" }
   ];
+  dropdownDemoForm = new FormGroup({
+    ddl: new FormControl("")
+  });
   constructor() {}
 
   ngOnInit() {}
