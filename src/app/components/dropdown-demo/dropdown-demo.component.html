@@ -1,6 +1,7 @@
 <form [formGroup]="dropdownDemoForm">
-	<app-dropdown formControlName='ddl' [listItems]='listItems' [txtValue]="'value'" [txtField]="'key'"></app-dropdown>
+	<app-dropdown formControlName='ddl' [defaultValue]="listItems[0]" [listItems]='listItems' [txtValue]="'value'" [txtField]="'key'"></app-dropdown>
 </form>
 
 {{dropdownDemoForm?.controls.ddl?.value.key}}
 {{dropdownDemoForm?.controls.ddl?.value.value}}
+
