@@ -1,0 +1,49 @@
+@import "utilities/index";
+
+.k-toolbar {
+  background: transparent;
+  border: 0px solid transparent;
+  padding: 0;
+  justify-content: flex-end;
+  overflow: initial;
+  margin-bottom: 10px;
+
+  .k-button {
+    min-width: auto;
+    width: 48px;
+    height: 48px;
+    box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    border-radius: 50%;
+    margin-right: 14px;
+    margin-left: 0px;
+    display: flex;
+    position: relative;
+
+    .k-i-ipts {
+      font-size: 30px;
+
+      &:before {
+        color: rgba(#000, 0.4);
+      }
+    }
+
+    &.has-badge {
+      &:after {
+        position: absolute;
+        content: attr(data-count);
+        color: #fff;
+        height: 23.33px;
+        width: 23.33px;
+        background: #02bfe7;
+        display: block;
+        z-index: 998;
+        top: -10px;
+        left: auto;
+        right: 0;
+        opacity: 1;
+        border-radius: 50%;
+      }
+    }
+  }
+}

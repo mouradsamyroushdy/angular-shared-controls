@@ -1,0 +1,467 @@
+@import "../mixins.scss";
+@import "../color-palette.scss";
+
+//Primary Tabs
+.primary-tabs {
+    .k-tabstrip-wrapper {
+        margin: 0 auto;
+
+        .k-widget {
+            background: transparent;
+            border-width: 0px;
+
+            &:focus {
+                box-shadow: none;
+            }
+
+            .k-tabstrip-items {
+                background: transparent;
+                padding: 0px;
+                border-width: 0;
+                align-items: flex-start;
+
+                li {
+                    border-width: 0;
+                    background: $primary-8;
+                    align-items: center;
+                    border-top-left-radius: 8px !important;
+                    border-top-right-radius: 8px !important;
+                    border-bottom-left-radius: 8px !important;
+                    border-bottom-right-radius: 8px !important;
+                    height: 60px;
+                    display: flex;
+                    align-items: center;
+                    text-align: center;
+                    opacity: 0.8;
+                    box-shadow: 2.26px 2.26px 2.26px 0 rgba(0, 0, 0, 0.1);
+                    position: relative;
+                    color: $primary-9;
+                    margin-right: 16px !important;
+                    flex: 0 0 220px;
+                    transition: all 200ms;
+
+                    .k-link {
+                        color: $primary-9;
+                        @include font(400, 13.5pt);
+                        padding: 0 !important;
+                        height: 100%;
+                        justify-content: center;
+                        transition: all 200ms;
+                    }
+
+                    &.k-state-active {
+                        border-radius: 8px;
+                        position: relative;
+                        opacity: 1;
+                        border: 0px solid $primary-3;
+                        border-color: transparent;
+                        background: $primary-3;
+
+                        .k-link {
+                            color: $primary-8;
+                            @include font(500, 13.5pt);
+
+                            &::after {
+                                color: white !important;
+                            }
+                        }
+                    }
+
+                    &.k-state-disabled {
+                        background-color: rgba($primary-9, 0.05) !important;
+                        cursor: not-allowed;
+
+                        .k-link {
+                            color: rgba($primary-9, 0.2);
+                        }
+
+                        * {
+                            cursor: not-allowed;
+                        }
+                    }
+
+                    &.error {
+                        .k-link {
+                            &::after {
+                                content: "\f071";
+                                position: absolute;
+                                right: 4%;
+                                width: 24px;
+                                height: 24px;
+                                color: #d8275e;
+                                -moz-osx-font-smoothing: grayscale;
+                                -webkit-font-smoothing: antialiased;
+                                font-style: normal;
+                                font-variant: normal;
+                                text-rendering: auto;
+                                line-height: 1;
+                                font-family: "Font Awesome 5 Free";
+                                font-weight: 900;
+                            }
+                        }
+                    }
+
+                    &.completed {
+                        .k-link {
+                            &::after {
+                                content: "\f00c";
+                                position: absolute;
+                                right: 4%;
+                                width: 24px;
+                                height: 24px;
+                                color: #2ecc71;
+                                -moz-osx-font-smoothing: grayscale;
+                                -webkit-font-smoothing: antialiased;
+                                display: inline-block;
+                                font-style: normal;
+                                font-variant: normal;
+                                text-rendering: auto;
+                                line-height: 1;
+                                font-family: "Font Awesome 5 Free";
+                                font-weight: 900;
+                            }
+                        }
+                    }
+                }
+            }
+
+            > .k-content {
+                margin: 0;
+                border-width: 0;
+                border-bottom-right-radius: 8px;
+                border-top-right-radius: 8px;
+                border-bottom-left-radius: 8px;
+                border-top-left-radius: 0px;
+                background: transparent;
+                padding: 0;
+                border-width: 0px !important;
+
+                &.top-left-radius {
+                    border-top-left-radius: 8px !important;
+                }
+            }
+
+        }
+    }
+}
+
+//Secondary Tabs
+.secondary-tabs {
+    .k-tabstrip-wrapper {
+        margin: 0 auto;
+
+        .k-widget {
+            background: transparent;
+            border-width: 0px;
+
+            &:focus {
+                box-shadow: none;
+            }
+
+            .k-tabstrip-items {
+                background: transparent;
+                padding: 0px;
+                border-width: 0;
+                align-items: flex-start;
+                border-bottom: 1px solid rgba($primary-9, 0.4);
+                position: relative;
+
+                li {
+                    border-width: 0;
+                    background-color: transparent !important;
+                    align-items: center;
+                    height: 60px;
+                    display: flex;
+                    align-items: center;
+                    text-align: center;
+                    opacity: 0.8;
+                    box-shadow: none;
+                    color: $primary-9;
+                    margin-right: 16px !important;
+                    flex: 0 0 220px;
+                    transition: all 200ms;
+                    position: relative;
+
+                    .k-link {
+                        color: $primary-9;
+                        @include font(400, 13.5pt);
+                        padding: 0 !important;
+                        height: 100%;
+                        justify-content: center;
+                        transition: all 200ms;
+                    }
+
+                    &.k-state-active {
+                        border-radius: 8px;
+                        position: relative;
+                        opacity: 1;
+                        border: 0px solid $primary-3;
+                        border-color: transparent;
+
+                        &:after {
+                            content: "";
+                            position: absolute;
+                            bottom: 0;
+                            width: 100%;
+                            height: 1px;
+                            background: $primary-3;
+                        }
+
+                        .k-link {
+                            color: $primary-3;
+                            @include font(500, 13.5pt);
+
+                            &::after {
+                                color: $primary-3 !important;
+                            }
+                        }
+                    }
+
+                    &.disabled {
+                        cursor: not-allowed;
+
+                        .k-link {
+                            color: rgba($primary-9, 0.2);
+                        }
+
+                        * {
+                            cursor: not-allowed;
+                        }
+                    }
+
+                    &.error {
+                        .k-link {
+                            &::after {
+                                content: "\f071";
+                                position: absolute;
+                                right: 4%;
+                                width: 24px;
+                                height: 24px;
+                                color: #d8275e;
+                                -moz-osx-font-smoothing: grayscale;
+                                -webkit-font-smoothing: antialiased;
+                                font-style: normal;
+                                font-variant: normal;
+                                text-rendering: auto;
+                                line-height: 1;
+                                font-family: "Font Awesome 5 Free";
+                                font-weight: 900;
+                            }
+                        }
+                    }
+
+                    &.completed {
+                        .k-link {
+                            &::after {
+                                content: "\f00c";
+                                position: absolute;
+                                right: 4%;
+                                width: 24px;
+                                height: 24px;
+                                color: #2ecc71;
+                                -moz-osx-font-smoothing: grayscale;
+                                -webkit-font-smoothing: antialiased;
+                                display: inline-block;
+                                font-style: normal;
+                                font-variant: normal;
+                                text-rendering: auto;
+                                line-height: 1;
+                                font-family: "Font Awesome 5 Free";
+                                font-weight: 900;
+                            }
+                        }
+                    }
+                }
+            }
+
+            > .k-content {
+                margin: 0;
+                border-width: 0;
+                border-bottom-right-radius: 8px;
+                border-top-right-radius: 8px;
+                border-bottom-left-radius: 8px;
+                border-top-left-radius: 0px;
+                background: transparent;
+                padding: 0;
+                border-width: 0px !important;
+
+                &.top-left-radius {
+                    border-top-left-radius: 8px !important;
+                }
+            }
+
+            .k-button {
+                z-index: 1;
+                width: 64px;
+                height: 64px;
+
+                &:hover {
+                    .k-icon {
+                        color: rgba($primary-9, 0.6);
+                        -moz-osx-font-smoothing: grayscale;
+                        -webkit-font-smoothing: antialiased;
+                        display: inline-block;
+                        font-style: normal;
+                        font-variant: normal;
+                        text-rendering: auto;
+                        line-height: 1;
+                        font-family: "Font Awesome 5 Free";
+                        font-weight: 900;
+                        font-size: 30px;
+                    }
+                }
+
+                .k-icon {
+                    transition: all 200ms;
+                    color: rgba($primary-9, 0.2);
+                    -moz-osx-font-smoothing: grayscale;
+                    -webkit-font-smoothing: antialiased;
+                    display: inline-block;
+                    font-style: normal;
+                    font-variant: normal;
+                    text-rendering: auto;
+                    line-height: 1;
+                    font-family: "Font Awesome 5 Free";
+                    font-weight: 900;
+                    font-size: 30px;
+                }
+
+                &.k-tabstrip-next {
+                    &:after {
+                        display: none;
+                    }
+
+                    &:before {
+                        display: none;
+                    }
+
+                    .k-icon {
+                        &::before {
+                            content: "\f054";
+                        }
+                    }
+                }
+
+                &.k-tabstrip-prev {
+                    &:after {
+                        display: none;
+                    }
+
+                    &:before {
+                        display: none;
+                    }
+
+                    .k-icon {
+                        &::before {
+                            content: "\f053";
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Search-Icon
+.k-tabstrip-wrapper {
+    ul.k-reset.k-tabstrip-items {
+        .k-button {
+            z-index: 1;
+            width: auto;
+            height: 64px;
+            min-width: auto !important;
+            align-items: center;
+            display: flex;
+            padding: 0;
+
+            &:hover {
+                .k-icon {
+                    color: rgba($primary-9, 0.6);
+                    -moz-osx-font-smoothing: grayscale;
+                    -webkit-font-smoothing: antialiased;
+                    display: inline-block;
+                    font-style: normal;
+                    font-variant: normal;
+                    text-rendering: auto;
+                    line-height: 1;
+                    font-family: "Font Awesome 5 Free";
+                    font-weight: 900;
+                    font-size: 30px;
+                }
+            }
+
+            .k-icon {
+                transition: all 200ms;
+                color: rgba($primary-9, 0.2);
+                -moz-osx-font-smoothing: grayscale;
+                -webkit-font-smoothing: antialiased;
+                display: inline-block;
+                font-style: normal;
+                font-variant: normal;
+                text-rendering: auto;
+                line-height: 1;
+                font-family: "Font Awesome 5 Free";
+                font-weight: 900;
+                font-size: 30px;
+            }
+
+            &.k-tabstrip-next {
+                &:after {
+                    display: none;
+                }
+
+                &:before {
+                    display: none;
+                }
+
+                .k-icon {
+                    &::before {
+                        content: "\f054";
+                    }
+                }
+            }
+
+            &.k-tabstrip-prev {
+                &:after {
+                    display: none;
+                }
+
+                &:before {
+                    display: none;
+                }
+
+                .k-icon {
+                    &::before {
+                        content: "\f053";
+                    }
+                }
+            }
+        }
+
+        /*margin: 0 !important;*/
+        margin-bottom: 20px;
+    }
+
+    .k-tabstrip > .k-content {
+        overflow: hidden !important;
+    }
+
+    .k-widget ul {
+        align-items: center !important;
+
+        li.search-tab {
+            border-radius: 50% !important;
+            height: 45px !important;
+            width: 45px !important;
+            flex-basis: 45px !important;
+            min-width: 45px !important;
+            padding: 0;
+
+            .fa-search {
+                overflow: auto !important;
+                font-size: 16px !important;
+                color: gray;
+            }
+        }
+    }
+}

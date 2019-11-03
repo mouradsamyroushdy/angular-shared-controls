@@ -1,0 +1,95 @@
+@import "../vars.scss";
+
+.weather-widget {
+  $bg-color: #1D262D;
+  $city-font-size: 16px;
+  $color: #FFF;
+  $height: 200;
+  $icon-height: 60px;
+  $icon-width: 60px;
+  $min-width: 200px;
+  $day-min-width: 32px;
+
+  background-color: $bg-color;
+  border-radius: 8px;
+  color: #FFFFFF;
+  min-height: $height;
+  min-width: $min-width;
+  padding: 0px $half-gutter;
+
+  .header, .body, .footer {
+    display: flex;
+  }
+
+  .header {
+    padding: $half-gutter $gutter;
+    padding-bottom: 0;
+
+    .city {
+      line-height: 19px;
+      font-size: $city-font-size;
+      font-weight: $font-weight-medium;
+    }
+  }
+
+  .body {
+    padding: $half-gutter $gutter;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .tempreature {
+      font-size: 30px;
+      font-weight: $font-weight-light;
+      margin-bottom: 12px;
+    }
+
+    .wind, .humidity {
+      font-size: 10px;
+      line-height: 12px;
+    }
+
+    .icon {
+      .partly-sunny {
+        width: $icon-width;
+        height: $icon-height;
+        background: url("/images/weather/partly-sunny.svg") no-repeat center center;
+        background-size: contain;
+      }
+    }
+  }
+
+
+  .footer {
+    padding: $half-gutter;
+
+    .days {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      width: 100%;
+
+      .day {
+        background-color: #4A5157;
+        border-radius: 4px;
+        min-width: $day-min-width;
+        text-align: center;
+
+        &.selected {
+          background-color: transparent;
+
+          .content {
+            font-weight: $font-weight-medium;
+            color: #FFFFFF;
+          }
+        }
+
+        .content {
+          font-weight: $font-weight-regular;
+          color: #7E9BFF;
+          padding: 0px;
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}

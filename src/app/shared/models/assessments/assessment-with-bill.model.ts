@@ -1,0 +1,37 @@
+export interface AssessmentWithTaxBill {
+    AlwaysVisible: boolean;
+    AssessmentNumber: string | null;
+    AssessmentSource: string | null;
+    AssessmentStatus: string | null;
+    AssessmentType: string | null;
+    AssessmentValue: string | null;
+    ChangeReason: string | null;
+    DocumentNumber: string | null;
+    EventDate: string | null;
+    EventType: string | null;
+    ExclusionsType: string | null;
+    ExemptionAOXValue: string | null;
+    ExemptionAssessmentValue: string | null;
+    ExemptionHOXValue: string | null;
+    FactoredBaseYear: string | null;
+    FixtureAssessmentValue: string | null;
+    ImprovementsAssessmentValue: string | null;
+    LandAssessmentValue: string | null;
+    NetAdjustedTaxableAssessmentValue: string | null;
+    NetTaxableAssessmentValue: string | null;
+    PPAssessmentValue: string | null;
+    PropertyId: number;
+    RollAssessmentValue: string | null;
+    RollType: string | null;
+    RollYear: string | null;
+    TaxableAssessmentValue: string | null;
+    TaxBillBillDate: string | null;
+    TaxBillCollectionType: string | null;
+    TaxBillDue: string | null;
+    TaxBillNumber: string | null;
+    TaxBillPayments: string | null;
+    TaxBillStatus: string | null;
+    TaxBillTaxes: string | null;
+    ValueActionDate: Date | null;
+    ValueChangeDate: Date | null;
+}

@@ -1,0 +1,108 @@
+@import "../color-palette.scss";
+.datepicker-cont {
+  width: 20%;
+  margin: 0 auto;
+  .k-datepicker {
+    width: 100%;
+    .k-picker-wrap {
+      border: 1px solid $primary-1;
+      height: 60px;
+      border-radius: 12px;
+      input {
+        height: 100%;
+      }
+      .k-select {
+        background: transparent;
+        padding: 0;
+        border: none;
+        margin-right: 10px;
+      }
+    }
+  }
+}
+.k-animation-container {
+  width: 20%;
+  overflow: visible;
+  border-radius: 12px;
+  .k-calendar-container {
+    background: $primary-9;
+    border-radius: 12px;
+    transition: all 200ms;
+    margin: 5px 0 0 0;
+    width: 100%;
+    .k-calendar {
+      background: $primary-9;
+      width: 100%;
+      border-radius: 12px;
+      .k-header {
+        background: $primary-9;
+        border-color: transparent;
+        color: $primary-8;
+        .k-nav-next,
+        .k-nav-prev {
+          background: $primary-7;
+          border-radius: 50%;
+          transition: all 200ms;
+          color: $primary-1;
+          &:hover {
+            background: $primary-6;
+            color: $primary-1;
+          }
+        }
+        a {
+          &:hover {
+            border-color: transparent;
+            color: $primary-8;
+            background-color: transparent;
+          }
+          span {
+          }
+        }
+      }
+      .k-calendar-view {
+        width: 100%;
+        height: auto;
+        .k-month,
+        .k-century,
+        .k-year,
+        .k-decade {
+          background: $primary-9;
+          width: 100%;
+          thead {
+            display: none;
+          }
+          tbody {
+            td {
+              background: $primary-9;
+              color: $primary-8;
+              margin: 0 5px;
+              border-radius: 50%;
+              a.k-link {
+                border-radius: 50%;
+                color: $primary-8;
+                transition: all 200ms;
+                text-align: center;
+              }
+              &.k-state-selected {
+                a.k-link {
+                  background: $primary-4;
+                  box-shadow: none;
+                  border-color: transparent;
+                  border-width: 0px;
+                }
+              }
+              &.k-state-hover {
+                a.k-link {
+                  background: $primary-5;
+                }
+              }
+            }
+          }
+        }
+      }
+      .k-footer {
+        display: none !important;
+      }
+    }
+  }
+}

@@ -1,0 +1,49 @@
+.nav {
+    $gutter: 24px;
+    $color-active: #000;
+    $color-disabled: #A4A4A4;
+    $font-size: 16px;
+    $font-weight: normal;
+    $height: 19px;
+    $item-spacig: $gutter/2;
+
+    font-size: $font-size;
+    font-weight: $font-weight;
+
+    &-profile {
+        height: $height;
+        line-height: $height;
+        margin-top: $gutter/2;
+        margin-bottom: $gutter/2;
+
+        &.active {
+            .nav-item {
+                &, & .nav-link {
+                    color: $color-active;
+                }
+            }
+        }
+
+        .nav-item {
+            &:not(:last-child) {
+                margin-right: $item-spacig;
+
+                &:after {
+                    content: "|";
+                    padding-left: $item-spacig;
+                }
+            }
+
+            &, & .nav-link {
+                color: $color-disabled;
+            }
+
+            .nav-link {
+                height: $height;
+                line-height: $height;
+                padding: 0;
+                display: inline-block;
+            }
+        }
+    }
+}

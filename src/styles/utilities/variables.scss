@@ -1,0 +1,30 @@
+//== Scaffolding
+//
+//## Settings for some of the most global styles.
+
+//** Background color for `<body>`.
+$body-bg: #F2F2F2;
+$font-color-base:#000;
+
+//== Grid system
+//
+//## Define your custom responsive grid.
+
+//** Padding between columns. Gets divided in half for the left and right.
+$grid-gutter-width: 24px;
+$gutter: $grid-gutter-width;
+$half-gutter: $gutter/2;
+$double-gutter: $gutter*2;
+
+//== Custom variables
+$transition-effect: all 200ms;
+$border-radius-8: 8px;
+
+//== Fonts
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-bold: 600;
+
+//== Backgrounds
+$dummy-bg: #E9EAEA;

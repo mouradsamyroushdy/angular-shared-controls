@@ -1,0 +1,64 @@
+@import "../color-palette.scss";
+@import "../modules/checkbox.scss";
+@import "../typography.scss";
+@import "../vars.scss";
+
+/*Card Notes for Picture and Text
+
+
+Google Material Icons: https://github.com/google/material-design-icons/blob/master/iconfont/codepoints
+expand_less e5ce
+expand_more e5cf*/
+
+.flex-container.card-title {
+    display: flex;
+    justify-content: space-between;
+    align-items:baseline;
+    margin: 16px;
+
+}
+
+
+.card.card-text {
+    border-width: 1px;
+    border-style: solid;
+    border-color: $iptsdarkgrey;
+    border-radius: $border-radius-8;
+    background-color: $primary-8;
+}
+
+.card-body.card-text {
+    background-color: $primary-8;
+    padding:0px;
+}
+
+
+.card-text.cardtext {
+    text-align: left;
+    margin: 16px;
+    color: $primary-9;
+}
+
+
+.card.card-text:hover {
+    border-top-color: $primary-3;
+    border-top-width: 1px;
+    border-top-style: solid;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+
+
+.card.card-text:not(hover) .card-body.card-text {
+    background-color: $primary-8;
+}
+
+
+
+.card-title.cardtext {
+    color:$primary-3;
+}
+
+.card-subtitle.cardtext {
+    color:rgba(0,0,0,$opacity40);
+}

@@ -27,8 +27,15 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles/styles.css"
+              "src/styles/styles.scss"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "node_modules",
+                "src/styles",
+                "src/styles/utilities"
+              ]
+            },
             "scripts": []
           },
           "configurations": {

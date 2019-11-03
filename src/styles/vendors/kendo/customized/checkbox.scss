@@ -1,0 +1,84 @@
+@import "utilities/index";
+
+.checkbox {
+    .k-checkbox {
+        &:focus {
+            & + .k-checkbox-label {
+                &:before {
+                    box-shadow: none !important;
+                }
+            }
+        }
+
+        &:disabled {
+            opacity: .30 !important;
+
+            & + .k-checkbox-label {
+                &:before {
+                    background: rgba(#000, 0.1);
+                    border: 2px solid transparent !important;
+                }
+            }
+        }
+
+        &:checked {
+            & + .k-checkbox-label {
+                &:before {
+                    background: #396dff;
+                    border: 2px solid transparent;
+                }
+            }
+
+            &:hover {
+                & + .k-checkbox-label {
+                    &:before {
+                        background: #0e56d8;
+                        border: 2px solid transparent;
+                    }
+                }
+            }
+
+            &:disabled {
+                & + .k-checkbox-label {
+                    &:before {
+                        background: rgba(#000, 0.1);
+                        border: 2px solid transparent !important;
+                    }
+                }
+            }
+        }
+
+        &:hover {
+            & + .k-checkbox-label {
+                &:before {
+                    border: 2px solid rgba(#000, 0.6);
+                }
+            }
+        }
+    }
+
+    .k-checkbox-label {
+        width: 20px;
+        height: 20px;
+        padding-left: 0;
+
+        &:before {
+            background-color: transparent;
+            border: 2px solid #000;
+            transition: all 200ms;
+            width: 20px;
+            height: 20px;
+            border-radius: 3px;
+        }
+
+        &:after {
+            width: 20px;
+            height: 20px;
+        }
+    }
+
+    .custom-checkbox-label {
+        margin-left: 15px;
+        font-size: 15pt;
+    }
+}

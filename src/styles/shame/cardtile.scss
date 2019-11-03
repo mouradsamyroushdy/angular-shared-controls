@@ -1,0 +1,234 @@
+@import "../color-palette.scss";
+@import "../modules/checkbox.scss";
+@import "../typography.scss";
+@import "../vars.scss";
+
+/*Card Notes for Picture and Text
+
+
+Google Material Icons: https://github.com/google/material-design-icons/blob/master/iconfont/codepoints
+expand_less e5ce
+expand_more e5cf*/
+
+.cardcontainer{
+    display:inline-flex;
+    position:relative;
+    height:100%;
+}
+
+
+.card {
+    border-color: $iptslightgrey;
+    border-style: solid;
+    border-width: 1px;
+    width: 100%;
+    margin-right: 0;
+    padding: 0;
+    border-radius: 8px;
+    display: inline-block;
+    float:left;
+    overflow: hidden;
+    transition: $transition-effect;
+    background-color: rgba(255,255,255,$opacity100);
+    
+}
+
+.card-header {
+    color: #ffffff;
+    background-color: rgba(0,0,0,$opacity20);
+    text-align: center;
+    transition: $transition-effect;
+    padding-top:8px;
+    padding-bottom:3px;
+    border-bottom:none;
+}
+
+.card-body {
+    background-color: rgba(0,0,0,$opacity20);
+    text-align: center;
+    font-size: 80%;
+    transition: $transition-effect;
+    padding-top:0px;
+    padding-bottom:4px;
+}
+
+.checkbox.card {
+    border-color: transparent;
+    position: absolute;
+    margin: 0px;
+    right: 0px;
+    top: 2px;
+    border-color:transparent;
+    background-color:transparent;
+    /*vertical-align: middle;
+    float: right;*/
+    text-align: right;
+    overflow: visible;
+    transition: $transition-effect;
+}
+
+
+.cardtoolsetdelete {
+    position: relative;
+    right: -1.5px;
+    bottom: 31px;
+    display: inline-block;
+    color: $iptsdarkgrey;
+    font-family: Material Icons;
+    visibility: hidden;
+}
+
+
+
+.cardtoolsetnotification {
+    position: relative;
+    right: 20px;
+    bottom: 5px;
+    display: inline-block;
+    color: $iptsdarkgrey;
+    font-family: Material Icons;
+    visibility: hidden;
+}
+
+.checkbox.card {
+    .k-checkbox {
+        &:checked {
+            & + .k-checkbox-label {
+                &:before {
+                    background: $primary-2;
+                    border: 2px solid transparent;
+                    visibility: visible;
+                    transition: $transition-effect;
+                }
+            }
+        }
+    }
+}
+
+
+.checkbox.card .k-checkbox-label {
+    transform: scale(0.75);
+    right: 8px;
+}
+
+
+.card:hover .k-checkbox-label:before {
+    visibility: visible;
+    transition: all 120ms;
+}
+
+
+
+
+.cardcontainer:hover
+.card {
+    background-color: #ffffff;
+    opacity: $opacity100;
+}
+
+.card:hover {
+    & .card-header {
+        background-color: rgba(0,0,0,$opacity40);
+        transition: $transition-effect;
+    }
+
+    & .card-body {
+        background-color: rgba(0,0,0,$opacity40);
+        transition: $transition-effect;
+    }
+
+    .imgcard {
+        opacity: $opacity60;
+        transition: $transition-effect;
+    }
+
+    & .card {
+        background-color: #ffffff;
+        opacity: $opacity100;
+        border-color: $iptsdarkgrey;
+        transition: $transition-effect;
+    }
+
+    & .checkbox.card {
+        background-color: transparent;
+        border-color: transparent;
+        transition: $transition-effect;
+    }
+
+
+}
+
+.card:hover + .toolset.cardtile {
+    visibility: visible;
+    transition: $transition-effect;
+}
+
+
+
+
+.cardcontainer:not(hover) .cardtoolsetnotification {
+    visibility: hidden;
+    transition: all 120ms;
+}
+
+.cardcontainer:hover .cardtoolsetnotification {
+    visibility: visible;
+    transition: $transition-effect;
+}
+
+
+
+
+.card:not(hover) .card-header {
+    transition: $transition-effect;
+}
+
+.card:not(hover) .card-body {
+    transition: $transition-effect;
+}
+
+.card:not(hover) .k-checkbox-label:before {
+    visibility: hidden;
+    transition: all 80ms;
+}
+
+
+.card-header .accordion-toggle {
+    &.collapsed:after {
+        font-family: 'Material Icons';
+        color: white;
+        content: "\e5cf";
+    }
+
+    &:after {
+        font-family: 'Material Icons';
+        color: white;
+        content: "\e5ce";
+        float: right;
+    }
+}
+
+
+.imgcard {
+    max-width: 100%;
+    max-height: 100%;
+    padding: 0px;
+    width: 100%;
+    background-color: $iptslightgrey;
+    padding: 0px;
+}
+
+.toolset.cardtile {
+    display: inline-flex;
+    flex-direction: column;
+    margin-top: auto;
+    margin-bottom: 15px;
+    visibility: hidden;
+    transition: all 80ms;
+}
+
+
+.toolset.cardtile:hover {
+    visibility: visible;
+    transition: $transition-effect;
+}

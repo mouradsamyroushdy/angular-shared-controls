@@ -1,0 +1,66 @@
+@import "utilities/index";
+
+.radiobox {
+  .k-radio {
+    &:checked {
+      & + .k-radio-label {
+        &:before {
+          background-color: transparent !important;
+          border: 2px solid #0f45ff !important;
+        }
+        &:after {
+          background-color: #0f45ff;
+        }
+      }
+      &:hover {
+        & + .k-radio-label {
+          &:before {
+            background-color: transparent !important;
+            border: 2px solid #0e56d8 !important;
+          }
+          &:after {
+            background-color: #0e56d8;
+          }
+        }
+      }
+    }
+    &:hover {
+      & + .k-radio-label {
+        &:before {
+          border: 2px solid rgba(#000, 0.6);
+        }
+      }
+    }
+
+    &:disabled {
+      & + .k-radio-label {
+        &:before {
+          background-color: transparent !important;
+          border: 2px solid rgba(#000, 0.2) !important;
+        }
+        &:after {
+          background-color: transparent;
+        }
+      }
+    }
+  }
+
+  .k-radio-label {
+    min-height: 20px !important;
+    width: 20px !important;
+    &:before {
+      background-color: transparent;
+      border: 2px solid rgba(#000, 0.4);
+      transition: all 200ms;
+      box-shadow: none !important;
+      width: 20px !important;
+      height: 20px !important;
+    }
+    &:after {
+      width: 10px !important;
+      height: 10px !important;
+      top: 5px !important;
+      left: 5px !important;
+    }
+  }
+}

@@ -1,0 +1,438 @@
+@import "utilities/index";
+
+.search-box {
+  &.global {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 244px;
+    padding-bottom: 5px;
+    //Bar
+    &:after {
+      content: "";
+      width: 0;
+      height: 1.5px;
+      background: #396dff;
+      position: absolute;
+      bottom: 0;
+      transition: all 500ms;
+    }
+
+    //Close
+    .close {
+      position: absolute;
+      top: 30%;
+      right: 0;
+      z-index: 1;
+      transition: all 200ms;
+      opacity: 0;
+      cursor: pointer;
+      font-size: 20px;
+    }
+    label {
+      position: absolute;
+      left: 60px;
+      top: 20px;
+      z-index: 1;
+      transition: all 200ms;
+      opacity: 0;
+      color: #396dff;
+      @include font(400, 12pt);
+    }
+    .search-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.1);
+      text-align: center;
+      padding: 9px 14px;
+      box-sizing: border-box;
+      font-size: 20px;
+      cursor: pointer;
+      background: #fff;
+      transition: all 200ms;
+      i {
+        color: rgba(#000000, 0.4);
+      }
+    }
+    .k-maskedtextbox {
+      width: 100%;
+      input {
+        border: 0px;
+        opacity: 0;
+        box-shadow: none;
+        background: transparent;
+      }
+    }
+
+    //Hover
+    &:hover {
+      &:after {
+        width: 100%;
+      }
+      .search-icon {
+        background: rgba(#000, 0.4);
+        i {
+          color: white;
+        }
+      }
+    }
+
+    //States
+    &.search-activated {
+      &:after {
+        width: 100%;
+      }
+      label {
+        top: -5px;
+        transition: all 200ms;
+        opacity: 1;
+      }
+
+      .search-icon {
+        background: rgba(#000, 0.2);
+        i {
+          color: white;
+        }
+      }
+
+      .k-maskedtextbox {
+        input {
+          opacity: 1;
+        }
+      }
+    }
+    &.typing {
+      .close {
+        opacity: 1;
+      }
+    }
+    &.focusedOut {
+      &:after {
+        width: 0 !important;
+      }
+      .k-maskedtextbox {
+        input {
+          opacity: 0 !important;
+        }
+      }
+      label {
+        opacity: 0 !important;
+      }
+    }
+    &.notEmpty {
+      &:hover {
+        .close {
+          opacity: 1 !important;
+        }
+        &:after {
+          width: 100%;
+          background: rgba(#000, 0.8);
+        }
+      }
+      .k-maskedtextbox {
+        input {
+          opacity: 1 !important;
+        }
+      }
+    }
+    &.disabled {
+      .k-maskedtextbox,
+      label {
+        display: none;
+      }
+
+      .search-icon {
+        cursor: initial;
+        background: rgba(#000, 0.05) !important;
+        i {
+          color: #000 !important;
+        }
+      }
+      &:hover {
+        &:after {
+          width: 0;
+        }
+        .close {
+          display: none;
+        }
+        .search-icon {
+          background: rgba(#000, 0.05);
+          i {
+            color: #000;
+          }
+        }
+      }
+    }
+  }
+  &.rounded {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 244px;
+    padding: 0 11px 0 11px;
+    border: 0.5px solid #808080;
+    border-radius: 20px !important;
+    height: 40px;
+    transition: all 200ms;
+    background: #fff;
+    //Bar
+    &:after {
+      content: "";
+      width: 0;
+      height: 1.5px;
+      background: rgba(#000, 0.8);
+      position: absolute;
+      bottom: 0;
+      transition: all 500ms;
+    }
+
+    //Close
+    .close {
+      position: absolute;
+      top: 30%;
+      right: 0;
+      z-index: 1;
+      transition: all 200ms;
+      opacity: 0;
+      cursor: pointer;
+      font-size: 20px;
+    }
+    .search-icon {
+      font-size: 20px;
+      cursor: pointer;
+      transition: all 200ms;
+      i {
+        color: #000000;
+      }
+    }
+    .k-maskedtextbox {
+      width: 100%;
+      input {
+        border: 0px;
+        box-shadow: none;
+      }
+    }
+
+    //Hover
+    &:hover {
+      border: 1px solid #808080;
+    }
+
+    //States
+    &.focusedIn {
+      border: 1px solid transparent;
+      background: transparent !important;
+      &:after {
+        width: 100%;
+      }
+      .close {
+        opacity: 1;
+      }
+      label {
+        top: -5px;
+        transition: all 200ms;
+        opacity: 1;
+      }
+      .k-maskedtextbox {
+        input {
+          background: transparent !important;
+        }
+      }
+      .search-icon {
+      }
+    }
+    &.typing {
+      .close {
+        opacity: 1;
+      }
+    }
+    &.focusedOut {
+      &:after {
+        width: 0 !important;
+      }
+      .k-maskedtextbox {
+        input {
+          opacity: 0 !important;
+        }
+      }
+      label {
+        opacity: 0 !important;
+      }
+    }
+    &.notEmpty {
+      border: 1px solid transparent;
+      &:after {
+        opacity: 1 !important;
+        width: 100%;
+      }
+      &:hover {
+        .close {
+          opacity: 1 !important;
+        }
+        &:after {
+          width: 100%;
+          background: rgba(#000, 0.8);
+        }
+      }
+      .k-maskedtextbox {
+        input {
+          opacity: 1 !important;
+        }
+      }
+    }
+    &.disabled {
+      background: rgba(#000, 0.05);
+      border: 1px solid transparent;
+      .search-icon {
+        cursor: initial;
+      }
+
+      .k-maskedtextbox {
+        background-color: transparent !important;
+        input {
+          background-color: transparent !important;
+          &::placeholder {
+            color: #000;
+            @include font(400, 12pt);
+          }
+        }
+      }
+      &:hover {
+        &:after {
+          width: 0;
+        }
+        .close {
+          display: none;
+        }
+      }
+    }
+  }
+  &.tooltip {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 244px;
+    padding: 0 11px 0 11px;
+    border-radius: 20px !important;
+    height: 40px;
+    transition: all 200ms;
+    opacity: 1 !important;
+    //Bar
+    &:after {
+      content: "";
+      width: 0;
+      height: 1.5px;
+      background: rgba(#000, 0.8);
+      position: absolute;
+      bottom: 0;
+      transition: all 500ms;
+    }
+
+    //Close
+    .close {
+      position: absolute;
+      top: 30%;
+      right: 0;
+      z-index: 1;
+      transition: all 200ms;
+      opacity: 0;
+      cursor: pointer;
+      font-size: 20px;
+    }
+    .search-icon {
+      font-size: 20px;
+      cursor: pointer;
+      transition: all 200ms;
+      i {
+        color: #000000;
+      }
+    }
+    .k-maskedtextbox {
+      width: 100%;
+      input {
+        background: transparent;
+        border: 0px;
+        box-shadow: none;
+      }
+    }
+
+    //Hover
+    &:hover {
+      &:after {
+        width: 100%;
+      }
+    }
+
+    //States
+    &.focusedIn {
+      &:after {
+        width: 100%;
+      }
+    }
+    &.typing {
+      .close {
+        opacity: 1;
+      }
+    }
+    &.focusedOut {
+      &:after {
+        width: 0 !important;
+      }
+    }
+    &.notEmpty {
+      border: 1px solid transparent;
+      &:after {
+        opacity: 1 !important;
+        width: 100%;
+      }
+      &:hover {
+        .close {
+          opacity: 1 !important;
+        }
+        &:after {
+          width: 100%;
+          background: rgba(#000, 0.8);
+        }
+      }
+      .k-maskedtextbox {
+        input {
+          opacity: 1 !important;
+        }
+      }
+    }
+    &.disabled {
+      background: transparent;
+      border: 1px solid transparent;
+      .search-icon {
+        cursor: initial;
+      }
+      .k-maskedtextbox {
+        background-color: transparent !important;
+        input {
+          background-color: transparent !important;
+          &::placeholder {
+            color: gold !important;
+            background: gold;
+          }
+        }
+      }
+      &:after {
+        width: 0;
+        display: none;
+      }
+      .close {
+        display: none;
+      }
+      &:hover {
+        &:after {
+          width: 0;
+          display: none;
+        }
+        .close {
+          display: none;
+        }
+      }
+    }
+  }
+}

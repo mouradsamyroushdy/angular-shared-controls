@@ -1,0 +1,33 @@
+@import "utilities/index";
+
+i {
+  $padding: 6px;
+
+  &[class*="ipts-"],
+  &[class*="fa-"] {
+    display: inline-block;
+
+    &:hover {
+      text-decoration: none;
+    }
+
+    &.left {
+      padding-left: $padding;
+    }
+
+        &.right {
+            padding-right: $padding;
+        }
+    }
+}
+
+.material-icons.md-20 { 
+    font-size: 20px!important; 
+}
+
+ .material-icons.searchMIcon {
+    position: absolute;
+    top: 9px;
+    left: 25px;
+    z-index: 30;
+  }

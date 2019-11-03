@@ -1,0 +1,112 @@
+<div #table class="table table-fixed" *ngIf="data && data.length">
+  <div class="head" #head>
+    <div class="row">
+      <div class="cell empty-cell fixed-cell" scope="col" colspan="2_">
+        <div class="content">&nbsp;</div>
+      </div><!-- .empty-cell -->
+      <div class="cell column-group-cell" *ngFor="let group of data" scope="col" [attr.colspan-original]="group.items.length"
+        [attr.colspan]="group.items.length">
+        <div class="content">
+          <div class="value">{{ group.key }}</div>
+          <a class="column-toggle" *ngIf="group.items.length>1" title="Collapse"
+            (click)="handleColumnGroupToggle($event.target.closest('th'))">
+            <i class="material-icons">keyboard_arrow_left</i>
+          </a><!-- .toggle -->
+        </div><!-- .content -->
+      </th><!-- .group-cell -->
+      <th class="dummy-cell" scope="col" #dummyCell>
+        <div class="content"></div>
+      </th><!-- .dummy-cell-->
+    </tr><!-- table>head>row -->
+  </thead> <!-- table>head -->
+
+  <tbody #body>
+    <app-scrollbars (scroll)='handleBodyScroll($event)' [maxHeight]='600'>
+      <ng-container *ngFor="let rowSchema of schema; trackBy:id; ">
+        <ng-container *ngTemplateOutlet="rowTemplate;
+          context:{
+            rowSchema:rowSchema,
+            isGroupParent:rowSchema.rowType==rowSchemaType.Group,
+            collapsible:rowSchema.collapsible,
+            groupId:rowSchema.id
+          }">
+        </ng-container><!-- parent-row -->
+        <ng-container *ngIf="rowSchema.groups">
+          <ng-container *ngFor="let rowSchemaGroups of rowSchema.groups">
+            <ng-container *ngFor="let rowSchemaGroup of rowSchemaGroups; let isFirst=first">
+              <ng-container *ngTemplateOutlet="rowTemplate;
+                context:{
+                  rowSchema:rowSchemaGroup,
+                  rowsCount:rowSchemaGroups.length,
+                  isFirst:isFirst,
+                  isGroupChild:true,
+                  parentId:rowSchema.id
+                }">
+              </ng-container>
+            </ng-container>
+          </ng-container>
+        </ng-container><!-- /child-rows -->
+      </ng-container>
+    </app-scrollbars>
+  </tbody> <!-- table>tbody -->
+</table> <!-- table -->
+
+<ng-template let-columnData='columnData' let-rowSchema='rowSchema' let-childRowsCount='childRowsCount'
+  let-parentId='parentId' let-isGroupParent='isGroupParent' let-isFirst='isFirst' let-isGroupChild='isGroupChild'
+  let-collapsible='collapsible' let-rowsCount="rowsCount" let-groupId='groupId' #rowTemplate>
+  <tr [ngClass]="rowSchema.rowType">
+    <td class="toggle-cell row-groups-toggle-cell fixed-cell" *ngIf="isGroupParent && collapsible"
+      (click)='handleRowGroupsToggle($event)' [attr.group-id]='groupId' [attr.id]='group-id'
+      [attr.child-rows-count]='childRowsCount'>
+      <div class="toggle">
+        <i class="material-icons">unfold_less</i>
+      </div>
+    </td>
+    <td class="toggle-cell row-group-toggle-cell fixed-cell row-group-cell" *ngIf="isGroupChild && isFirst && rowsCount"
+      (click)='handleRowGroupToggle($event)' [attr.child-rows-count]='rowsCount' [attr.rowspan]="rowsCount"
+      [attr.parent-id]='parentId'>
+      <div class="toggle" *ngIf="isFirst && rowsCount">
+        <i class="material-icons">keyboard_arrow_left</i>
+      </div>
+    </td>
+    <td class="fixed-cell" [attr.colspan]="!(isGroupParent&&collapsible) && !isGroupChild? 2:1" scope="row">
+      <div class="content">
+        {{ rowSchema.title }}
+      </div>
+    </td>
+
+    <ng-container *ngFor="let group of data">
+      <ng-container *ngFor="let columnData of group.items; let isLastInGroup = last;">
+        <ng-container *ngTemplateOutlet="cellTemplate;
+          context:{
+            value:columnData[rowSchema.field],
+            collapsible:columnData['collapsible'],
+            field:rowSchema.field,
+            template:rowSchema.template,
+            type:rowSchema.fieldType,
+            isLastInGroup:isLastInGroup
+          }">
+        </ng-container>
+      </ng-container>
+    </ng-container>
+
+    <td class="dummy-cell" scope="col" #dummyCell>
+      <div class="content"></div>
+    </td><!-- .dummy-cell -->
+  </tr>
+</ng-template>
+
+<ng-template let-value='value' let-collapsible='collapsible' let-field='field' let-template='template' let-type='type'
+  let-isLastInGroup='isLastInGroup' #cellTemplate>
+  <td class="content-cell" [title]="value|format:type|default:''"
+    [ngClass]="{'last-in-group':isLastInGroup,'collapsible':collapsible}">
+    <div class='content'>
+      <span *ngIf="template && value && value!=='-'; else valueAsIs"
+        [innerHtml]="template|bindTemplate:{ key:field, value:value}" #valueAsTemplate>
+      </span><!-- value-as-template -->
+      <ng-template #valueAsIs>
+        <span [innerText]="value|format:type|default:''"></span>
+      </ng-template><!-- value-as-is -->
+    </div><!-- .content -->
+  </td><!-- .content-cell -->
+</ng-template>

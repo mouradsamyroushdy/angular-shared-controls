@@ -1,0 +1,33 @@
+@import "../color-palette.scss";
+@import "../modules/checkbox.scss";
+@import "../typography.scss";
+@import "../vars.scss";
+
+
+.toolset {
+    width: 50px;
+    height: 50px;
+}
+
+.mdc-button.toolsetbutton {
+    background: transparent;
+    border: none;
+}
+
+.material-icons.mdc-button__icon.toolsetbutton {
+    color: rgba(0,0,0,$opacity40);
+}
+
+.material-icons.mdc-button__icon.toolsetbutton:hover {
+    color: $primary-9;
+}
+
+.toolset .tooltip {
+    top: 35px !important;
+    left: 35px !important;
+}
+
+.tooltip-arrow {
+    display: none !important;
+}
+

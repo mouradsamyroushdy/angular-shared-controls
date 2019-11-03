@@ -1,0 +1,80 @@
+@import "../mixins.scss";
+@import "../color-palette.scss";
+
+.modal {
+  &.messages {
+    .modal-dialog {
+      .modal-content {
+        background: rgba(#000, 0.9);
+        padding: 18px;
+        border-radius: 8px;
+        color: #fff;
+        .modal-header {
+          border-bottom: 0px solid transparent;
+          padding: 0;
+          margin-bottom: 20px;
+          @include font(500, 12pt);
+          .close {
+            opacity: 1;
+          }
+          span.left-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            margin-right: 8px;
+            font-family: "ipts" !important;
+            speak: none;
+            font-style: normal;
+            font-weight: normal;
+            font-variant: normal;
+            text-transform: none;
+            line-height: 1;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            &:before {
+              color: rgba(#fff, 0.8);
+              font-size: 25px;
+            }
+          }
+        }
+        .modal-body {
+          padding: 0;
+          @include font(400, 10.5pt);
+        }
+      }
+    }
+    &.fail-message {
+      .modal-header {
+        span.left-icon {
+          background: #d8275e;
+          &:before {
+            content: "\e912";
+          }
+        }
+      }
+    }
+    &.succeeded-message {
+      .modal-header {
+        span.left-icon {
+          background: #2ecc71;
+          &:before {
+            content: "\e926";
+          }
+        }
+      }
+    }
+    &.alert-message {
+      .modal-header {
+        span.left-icon {
+          background: #ffc933;
+          &:before {
+            content: "\e901";
+          }
+        }
+      }
+    }
+  }
+}

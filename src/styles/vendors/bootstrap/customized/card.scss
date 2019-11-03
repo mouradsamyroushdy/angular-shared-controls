@@ -1,0 +1,29 @@
+@import 'utilities/index';
+
+.card {
+  $border-color: #ccc;
+  $border-width: 1;
+  border-radius: 8px;
+  padding: 0;
+  margin: 0;
+  border: $border-width solid $border-color;
+  transition: all 200ms;
+  background-color: white;
+
+  .card-title {
+    display: flex;
+
+    a {
+      padding: 0;
+    }
+
+    span {
+      color: #007bff;
+      font-size: 14px;
+    }
+  }
+
+  .card-body {
+    padding: $gutter !important;
+  }
+}

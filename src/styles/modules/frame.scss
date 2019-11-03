@@ -1,0 +1,35 @@
+@import"utilities/index";
+
+.frame {
+    $bg-color: #FFF;
+    $bg-color-dark: #FFF;
+    $border-radius: 8px;
+    $padding: $half-gutter;
+    $fotter-line-height: 16px;
+    background-color: $bg-color;
+    border-radius: $border-radius;
+    box-shadow: 2px 2px 5px 0px #ccc;
+
+    &-header, &-body, &-footer {
+        overflow: hidden;
+        padding: $padding;
+        @extend .clearfix;
+    }
+
+    &-header {
+        font-size: 16px;
+        font-weight: $font-weight-medium;
+        line-height: 19px;
+    }
+
+    &-body {
+    }
+
+    &-footer {
+        line-height: $fotter-line-height;
+
+        &.border-top {
+            border-top: .5px solid #999999;
+        }
+    }
+}

@@ -1,0 +1,87 @@
+@import "../color-palette.scss";
+@import "../modules/checkbox.scss";
+@import "../typography.scss";
+@import "../vars.scss";
+
+/*Card Notes for Picture and Text
+
+
+Google Material Icons: https://github.com/google/material-design-icons/blob/master/iconfont/codepoints
+expand_less e5ce
+expand_more e5cf*/
+
+
+.imagesidecaption {
+    border-color: $iptslightgrey;
+    border-style: solid;
+    width: 100%;
+    margin-right: 0;
+    padding: 0;
+    border-radius: 8px;
+    display: inline-block;
+    overflow: hidden;
+    transition: $transition-effect;
+    background-color: rgba(255,255,255,$opacity100);
+}
+
+.imagesidecaptionfulltext {
+    color: #ffffff;
+    background-color: rgba(0,0,0,$opacity20);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.imagesidecaptioncontainer:hover {
+
+
+    .imagesidecaptionpicture {
+        background-color: $iptsdarkgrey;
+        transition: $transition-effect;
+        opacity: $opacity60;
+    }
+
+    .imagesidecaption {
+        background-color: $iptsdarkgrey;
+        border-color: $iptsdarkgrey;
+        transition: $transition-effect;
+    }
+}
+
+.imagesidecaptionpicture {
+    max-width: 100%;
+    max-height: 100%;
+    padding: 0px;
+    background-color: $iptslightgrey;
+    padding: 0px;
+    align-items: stretch;
+}
+
+
+.imagesidecaptiontitle {
+    color: white;
+
+}
+
+.imagesidecaptiondescription {
+    color: black;
+    font-size: 80%;
+    flex-grow: .75;
+    display: flex;
+    align-items: center;
+}
+
+.grid-container.imagesidecaption {
+    width:100%;
+    height:100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+
+    grid-gap: 1px;
+    padding: 0px;
+    align-items: stretch;
+    position: relative;
+}

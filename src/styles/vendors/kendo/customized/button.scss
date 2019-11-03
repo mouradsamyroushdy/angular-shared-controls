@@ -1,0 +1,87 @@
+@import "utilities/index";
+
+.k-button {
+    -webkit-appearance: none;
+    transition: all 200ms;
+    padding: 10px 0;
+    display: inline-block;
+    border: 0px solid transparent;
+    height: 32px;
+    min-width: 90px;
+    padding: 5px 15px;
+    border-radius: 16px;
+    background-image: none !important;
+
+    &.primary {
+        background-color: #396dff !important;
+        color: #fff;
+        @include font(500, 12pt);
+
+        &:hover {
+            background-color: #0e56d8 !important;
+        }
+
+        &.k-state-disabled {
+            background-color: rgba(#000, 0.05) !important;
+            color: rgba(#000, 0.2) !important;
+            @include font(500, 12pt);
+        }
+
+        &:active,
+        &:focus {
+            background-color: #7e9bff !important;
+            box-shadow: none !important;
+            color: rgba(#f7f7f7, 0.8);
+        }
+    }
+
+    &.secondary {
+        background-color: transparent !important;
+        border-radius: 30px;
+        transition: all 200ms;
+        border: 1px solid $primary-2;
+        color: $primary-2;
+
+        &:hover {
+            border: 1px solid #0e56d8;
+            color: #0e56d8;
+        }
+
+        &.k-state-disabled {
+            border: 1px solid rgba($primary-9, 0.05);
+            color: rgba($primary-9, 0.2) !important;
+        }
+
+        &:active,
+        &:focus {
+            border: 1px solid #7e9bff !important;
+            box-shadow: none !important;
+            color: #7e9bff;
+        }
+    }
+
+    &.tertiary {
+        background-color: rgba($primary-9, 0.6) !important;
+        transition: all 200ms;
+        border: 0px solid transparent;
+        min-width: 80px;
+        color: $primary-8;
+        @include font(500, 10.5pt);
+
+        &:hover {
+            background-color: rgba($primary-9, 0.8) !important;
+            color: $primary-8;
+        }
+
+        &.k-state-disabled {
+            background-color: rgba($primary-8, 0.05) !important;
+            color: rgba($primary-8, 0.2) !important;
+        }
+
+        &:active {
+            background-color: rgba($primary-9, 0.2) !important;
+            box-shadow: none !important;
+            color: $primary-8;
+        }
+    }
+}

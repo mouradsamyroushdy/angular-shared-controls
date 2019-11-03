@@ -1,0 +1,60 @@
+@import "../mixins.scss";
+@import "../color-palette.scss";
+
+
+.zero-padding {
+  padding: 0px !important;
+}
+
+.flag {
+  color: #02bfe7;
+}
+
+.body-content {
+    position: relative;
+    padding-top: 75px;
+    padding-bottom:70px!important;
+    aside {
+        position: fixed;
+        top: 0;
+        left: -300px;
+        height: 100%;
+        display: flex;
+        transition: all 200ms;
+
+        & > span {
+            cursor: pointer;
+            transform: rotateY(0deg);
+            transition: all 200ms;
+            order: 1;
+            font-family: "ipts" !important;
+            speak: none;
+            font-style: normal;
+            font-weight: normal;
+            font-variant: normal;
+            text-transform: none;
+            line-height: 1;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+
+            &:before {
+                content: "\e925";
+            }
+        }
+
+        .aside-cont {
+            width: 300px;
+            height: 100%;
+            background: #fff;
+            border-right: 1px solid gold;
+        }
+
+        &.aside-activated {
+            left: 0;
+
+            & > span {
+                transform: rotateY(-175deg);
+            }
+        }
+    }
+}

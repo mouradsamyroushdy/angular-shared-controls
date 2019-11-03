@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap');
+@import "utilities/index";
+
+body {
+  @include font(400,16px);
+  line-height: 24pt;
+  color: $font-color-base;
+}
+
+h1 {
+  @include font(400,40px);
+}
+
+h2 {
+  @include font(400,26px);
+}
+
+h3 {
+  @include font(500,24px);
+}
+
+h4 {
+  @include font(500,20px);
+}
+
+h5 {
+  @include font(500,20px);
+}
